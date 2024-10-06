@@ -12,6 +12,8 @@ st.title('Ad Click Prediction App')
 # Input fields
 daily_time_spent = st.number_input('Daily Time Spent on Site (in minutes)', min_value=0, max_value=100, step=1)
 age = st.number_input('Age', min_value=18, max_value=70, step=1)
+ad_topic_line = st.number_input('Enter the ad topic line',min_value=0,max_value=558,step=1)
+country = st.number_input('Enter country number:',min_value=0,max_value=206,step=1)
 area_income = st.number_input('Area Income', min_value=0, max_value=100000, step=500)
 daily_internet_usage = st.number_input('Daily Internet Usage (in minutes)', min_value=0, max_value=300, step=1)
 gender = st.selectbox('Gender', ['Male', 'Female'])
@@ -27,7 +29,7 @@ month = st.slider('Month', 1, 12, 6)
 # When the user clicks the 'Predict' button
 if st.button('Predict'):
     # Prepare the input features as a 2D array
-    input_features = np.array([[daily_time_spent, age, area_income, daily_internet_usage, gender, hour, day, month]])
+    input_features = np.array([[daily_time_spent, age, ad_topic_line, country, area_income, daily_internet_usage, gender, hour, day, month]])
 
     # Make a prediction
     prediction = model.predict(input_features)
